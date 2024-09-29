@@ -1,0 +1,111 @@
+<div class="bg-black text-white font-bold text-center py-4">
+  <h1 class="text-4xl uppercase">About Us</h1>  
+</div>
+
+<div class="container mx-auto mt-8">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 class="text-2xl font-bold mb-4">About Us</h2>
+      <div class="md:flex md:items-center">
+          <div class="md:w-1/2">
+              <img src="https://wallpapers.com/images/hd/4k-mask-dope-guy-with-hoodie-t0d0d3y6av7dlpnm.jpg" alt="Team" class="w-full h-96 object-cover rounded">
+          </div>
+          <div class="md:w-1/2 md:ml-4 mt-4 md:mt-0">
+              <h3 class="text-2xl font-bold mb-4">The Minds behind The Gentlemen's</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat magna et nulla bibendum, in pharetra turpis tincidunt...</p>
+              <p>Nulla vitae sapien aliquet, aliquam massa non, vehicula nisi...</p>
+              <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut auctor lorem ut leo placerat...</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-8">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 contact-section">
+      <h2 class="text-2xl font-bold mb-4">Contact Details</h2>
+      <div class="md:flex md:items-center">
+          <!-- Left Side: Contact Details -->
+          <div class="md:w-1/2">
+              <p>Road No.14, Bibinagar, Hyderabad</p>
+              <p>Email: komalreddypalwai@gmail.com</p>
+              <p>Contact: +91 XXXXXXXXXX</p>
+              <p>Landline: +91-XXXXXXXXXX</p>
+              <!-- Social Media Links -->
+              <div class="flex mt-4">
+                  <a href="#" class="mr-4 text-blue-500"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="mr-4 text-blue-500"><i class="fab fa-youtube"></i></a>
+                  <a href="#" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
+              </div>
+          </div>
+          <!-- Right Side: Contact Form -->
+          <div class="md:w-1/2 md:ml-4 mt-4 md:mt-0">
+              <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+              <form id="contactForm" class="space-y-4">
+                  <div class="mb-4">
+                      <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  </div>
+                  <div class="mb-4">
+                      <input type="email" id="email" name="email" placeholder="Your Email Address" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  </div>
+                  <div class="mb-4">
+                      <textarea id="message" name="message" placeholder="Your Message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea>
+                  </div>
+                  <div class="flex items-center justify-between">
+                      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                  </div>
+              </form>
+              <div id="errorMessage" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded mt-4" role="alert">
+                  <p class="font-bold">Please fill in all fields.</p>
+              </div>
+              <div id="successMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded mt-4" role="alert">
+                  <p class="font-bold">Thanks for contacting us!</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
+
+      form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          if (validateForm()) {
+              // Simulate form submission (you can replace this with actual submission logic)
+              setTimeout(function() {
+                  form.reset();
+                  successMessage.classList.remove('hidden');
+                  errorMessage.classList.add('hidden');
+
+                  // Reset form after 12 hours (43200000 milliseconds)
+                  setTimeout(() => {
+                      successMessage.classList.add('hidden');
+                  }, 43200000); // 12 hours
+              }, 1000);
+          } else {
+              errorMessage.classList.remove('hidden');
+              successMessage.classList.add('hidden');
+          }
+      });
+
+      // Function to validate form fields
+      function validateForm() {
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const message = document.getElementById('message').value;
+
+          return name !== '' && email !== '' && message !== '';
+      }
+  });
+</script>
+
+<style>
+  body {
+      overflow-x: hidden;
+  }
+  .contact-section {
+      width: 80vw; 
+  }
+</style>

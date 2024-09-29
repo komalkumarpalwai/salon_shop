@@ -1,0 +1,110 @@
+
+    <style>
+        #photo {
+            width: 40vw;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            #photo {
+                width: 100%;
+                opacity: 0.8;
+            }
+        }
+
+        .bg-cover {
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-cover h-screen flex items-center justify-center relative" style="background-image: url('https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?cs=srgb&dl=pexels-thgusstavo-1813272.jpg&fm=jpg');">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
+        <img src="https://wallpapercave.com/wp/wp12028066.jpg" alt="Kingsmen Barbershop Logo" class="mx-auto mb-8 rounded" style="max-width: 150px;">
+        <p class="text-4xl md:text-5xl text-yellow-300 font-bold mb-4">Looking For a Haircut?</p>
+        <p class="mb-4 text-lg md:text-xl text-white font-serif font-semibold hover:text-yellow-300">A man only old school barbershop specialized in Classic Haircuts from 1920’s to 1950’s and Hot Towel Straight Razor Shaves.</p>
+        <button class="text-white py-3 px-8 rounded-full uppercase font-semibold shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105" style="background: linear-gradient(to right, #E1B937, #D1A937);">
+            Book an Appointment
+        </button>
+    </div>
+</div>
+
+<div class="flex flex-col md:flex-row h-auto md:h-screen">
+    <!-- Left side -->
+    <div class="flex-1 flex items-center justify-center p-4">
+        <img src="https://cdntrust.s3.us-east-2.amazonaws.com/images/262f4826-f703-4cec-a295-bc41dee927e3.jpg" alt="Barbershop" class="rounded-lg w-full h-auto shadow-lg">
+    </div>
+    <!-- Right side -->
+    <div class="flex-1 bg-gray-800 flex items-center justify-center p-4">
+        <div class="flex flex-col items-center justify-center space-y-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-yellow-500 text-center">HAIR STYLING TRENDSETTERS SINCE 2020</h1>
+            <p class="text-lg md:text-lg text-gray-400 text-center max-w-xl">
+                Kingsmen Barbershop was first conceived around the idea of bringing a traditional salon to Hyderabad. Now, it has grown into the place-to-be for a haircut or a dramatic makeover.
+            </p>
+            <img src="https://t3.ftcdn.net/jpg/06/70/53/74/360_F_670537427_n4UsFhTyJyRLAuuukM1Z9LTEbtZp0KWi.jpg" alt="Kingsmen Barbershop" class="w-48 h-48 object-cover rounded-lg shadow-lg">
+        </div>
+    </div>
+</div>
+
+<div class="h-auto w-full flex flex-col items-center justify-center bg-black text-white p-8">
+    <div class="w-full text-center">
+        <h1 class="text-4xl font-bold mb-4">LOCATIONS</h1>
+        <h2 class="text-2xl font-semibold italic">Redefining Men's Grooming in Hyderabad</h2>
+        <p class="text-xl mt-2">Now Open in Indiranagar, Bengaluru!</p>
+    </div>
+    <div class="flex flex-col md:flex-row w-full justify-around mt-8">
+        <div class="relative flex flex-col items-center w-full md:w-1/2 p-4">
+            <div class="mb-4 relative">
+                <img src="https://media.istockphoto.com/id/692999494/photo/hairdresser-cutting-some-hair-tips.jpg?s=612x612&w=0&k=20&c=5bC0fdICk914P5JWYDOi6N3CirJV4IBMTxYJh32vi8o=" alt="Location 1" class="object-cover w-full h-auto" id="photo">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-center p-4">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">BIBINAGAR - YADADRI</h3>
+                        <h4 class="text-lg">ADDRESS</h4>
+                        <h5 class="text-md">Road No.14, Banjara Hills, Hyderabad</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex flex-col items-center w-full md:w-1/2 p-4">
+            <div class="mb-4 relative">
+                <img src="https://i.pinimg.com/736x/ae/67/7a/ae677a18891ad058e1526f2b087028b6.jpg" alt="Location 2" class="object-cover w-full h-auto" id="photo">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-center p-4">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">HYDERABAD - JUBILEE HILLS</h3>
+                        <h4 class="text-lg">ADDRESS</h4>
+                        <h5 class="text-md">Road No.14, Banjara Hills, Hyderabad</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button onclick="scrollToTop()" id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-yellow-400 text-black p-3 rounded-full shadow-md hidden">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+    window.onscroll = function() {
+        toggleScrollTopButton();
+    };
+
+    function toggleScrollTopButton() {
+        var btn = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.classList.remove("hidden");
+        } else {
+            btn.classList.add("hidden");
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+

@@ -1,0 +1,149 @@
+<div class="bg-black text-white font-bold text-center py-4">
+    <h1 class="text-4xl uppercase">OUR SERVICES</h1>  
+  </div>
+  <div class="flex justify-around bg-black">
+    <!-- Basic Plan -->
+    <div class="bg-black shadow-md rounded-lg overflow-hidden w-64 border-white border-2 mt-16 h-auto ">
+      <div class="overflow-hidden">
+        <img src="https://img.freepik.com/free-photo/client-doing-hair-cut-barber-shop-salon_1303-20824.jpg" alt="Basic Plan" class="w-full h-64 object-cover  transform transition-transform duration-300 hover:scale-105">
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl text-white font-bold mb-2">HAIRCUT</h3>
+        <p class="  text-white  mb-2">45 min</p>
+        <p class="  text-white font-bold">₹500</p>
+      </div>
+    </div>
+    <!-- Standard Plan -->
+    <div class="bg-black shadow-md rounded-lg overflow-hidden w-64 border-white border-2 mt-16">
+        <div class="overflow-hidden">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt7RmE1Jmy6BUkuhwovS9efR58wMXiKof_Jw&s" alt="Basic Plan" class="w-full h-64 object-cover  transform transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="p-4">
+            <h3 class="text-xl text-white font-bold mb-2">FULL BEARD SHAVE</h3>
+            <p class="  text-white  mb-2">30 min</p>
+            <p class="  text-white font-bold">₹300</p>
+          </div>
+      </div>
+    <!-- Premium Plan -->
+    <div class="bg-black shadow-md rounded-lg overflow-hidden w-64 border-white border-2 mt-16">
+        <div class="overflow-hidden">
+          <img src="https://jawedhabibsalon.com/wp-content/uploads/2020/04/male-hair-spa-300x300.jpg" alt="Basic Plan" class="w-full h-64 object-cover  transform transition-transform duration-300 hover:scale-105">
+        </div>
+        <div class="p-4">
+            <h3 class="text-xl text-white font-bold mb-2">Head Massage</h3>
+            <p class="  text-white  mb-2">25 min</p>
+            <p class="  text-white font-bold">₹1200</p>
+          </div>
+      </div>
+</div>
+</div>
+
+<div class="container mx-auto mt-8">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 class="text-2xl font-bold mb-4">Book Now</h2>
+      <form id="bookNowForm" class="space-y-4">
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-gray-700 font-bold mb-2">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Your Email Address" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="place" class="block text-gray-700 font-bold mb-2">Place</label>
+          <select id="place" name="place" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            <option value="bibinagar">Bibinagar</option>
+            <option value="nalgonda">Nalgonda</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="service" class="block text-gray-700 font-bold mb-2">Service</label>
+          <select id="service" name="service" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            <option value="haircut">Haircut</option>
+            <option value="shaving">Shaving</option>
+            <option value="massage">Massage</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="date" class="block text-gray-700 font-bold mb-2">Date</label>
+          <input type="date" id="date" name="date" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+          <label for="time" class="block text-gray-700 font-bold mb-2">Time</label>
+          <input type="time" id="time" name="time" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="flex items-center justify-between">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Book Appointment</button>
+        </div>
+      </form>
+      <div id="warningMessage" class="hidden bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 px-4 py-3 rounded mt-4" role="alert">
+        <p class="font-bold">Please fill in all fields.</p>
+      </div>
+      <div id="thankYouMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded mt-4" role="alert">
+        <p class="font-bold">Thank you for booking!</p>
+        <h1 class="text-2xl font-bold mt-2">Booking Appointment Number: <span id="bookingNumber"></span></h1>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('bookNowForm');
+      const warningMessage = document.getElementById('warningMessage');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+      const bookingNumber = document.getElementById('bookingNumber');
+
+      // Check if there is stored data in local storage
+      const storedFormData = JSON.parse(localStorage.getItem('formData'));
+      if (storedFormData) {
+        thankYouMessage.classList.remove('hidden');
+        bookingNumber.textContent = storedFormData.bookingNumber;
+      }
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (validateForm()) {
+          const formData = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            place: document.getElementById('place').value,
+            service: document.getElementById('service').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            bookingNumber: generateBookingNumber()
+          };
+          localStorage.setItem('formData', JSON.stringify(formData));
+          thankYouMessage.classList.remove('hidden');
+          bookingNumber.textContent = formData.bookingNumber;
+          warningMessage.classList.add('hidden');
+        } else {
+          warningMessage.classList.remove('hidden');
+          thankYouMessage.classList.add('hidden');
+        }
+      });
+
+      // Function to generate a random booking number
+      function generateBookingNumber() {
+        return Math.floor(100000 + Math.random() * 900000); // Generates a random 6-digit number
+      }
+
+      // Function to validate form fields
+      function validateForm() {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const place = document.getElementById('place').value;
+        const service = document.getElementById('service').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        return name !== '' && phone !== '' && email !== '' && place !== '' && service !== '' && date !== '' && time !== '';
+      }
+    });
+  </script>
